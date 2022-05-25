@@ -1,7 +1,15 @@
-# Vue 3 + Vite
+## ElementPlus 组件封装练习
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+在线预览：
 
-## Recommended IDE Setup
+[el-components](https://el-components.vercel.app/)
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+目前已实现的组件：
+
+* ElMessage
+
+* ElMessageBox
+
+TODO:
+
+* ElImage
