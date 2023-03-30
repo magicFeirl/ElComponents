@@ -1,6 +1,6 @@
 <template>
     <div class="pl-2">
-        <h1 class="text-2xl mb-4">ElementPlus Message & MessageBox Component</h1>
+        <h1 class="text-2xl mb-4">ElementPlus Message & MessageBox Component & Loading Components etc.</h1>
         <div>
             <h2 class="text-lg">MessageBox test</h2>
             <button @click="showMessage">message</button>
@@ -16,12 +16,38 @@
             <button @click="Message.danger({ message: 'nihao' })">Error Message</button>
             <button @click="Message({ type: 'success', message: 'nihao', duration: 5000 })">Success Message</button>
         </div>
+
+        <div class="mt-4">
+            <h2 class="text-lg">el-loading</h2>
+            <button @click="showLoading">Show loading</button>
+        </div>
+
+        <div>
+            <button class="relative">
+                <div class="absolute left-0 top-0 w-full h-full bg-white border rounded-full"></div>
+                helli
+            </button>
+        </div>
+
+        <ElTableTest />
+
+        <InfiniteScroll></InfiniteScroll>
+
+        <VirtualList :listHeight="300" :rowHeight="50" :data="virtualListData"></VirtualList>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 import { MessageBox } from './components/MessageBox'
 import Message from './components/Message'
+import InfiniteScroll from './components/InfiniteScroll/index.vue'
+import VirtualList from './components/VirtualList/index.vue'
+
+import Loading from './components/Loading/index.js'
+
+import ElTableTest from './components/ElTableTest/index.vue'
 
 const showMessage = () => {
     MessageBox({
@@ -66,6 +92,15 @@ const showMessagePromptStatic = () => {
         cancel: 'Cancel',
     })
 }
+
+const showLoading = () => {
+    const inst = Loading.show()
+    setTimeout(() => {
+        inst.close()
+    }, 1000);
+}
+
+const virtualListData = ref([...Array.from({ length: 10000 }).map((_, idx) => idx)])
 </script>
 
 <style scoped>

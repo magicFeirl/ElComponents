@@ -10,6 +10,10 @@
 
 * ElMessageBox
 
+* VirtualList
+
+* InfiniteScroll (directive)
+
 TODO:
 
 * ElImage
