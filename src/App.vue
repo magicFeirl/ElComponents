@@ -83,7 +83,7 @@ import { MessageBox } from './components/MessageBox'
 import Message from './components/Message'
 import InfiniteScroll from './components/InfiniteScroll/index.vue'
 import VirtualList from './components/VirtualList/index.vue'
-import BackToTop from './components/BackToTop/index.vue'
+import BackToTop from './components/BacktoTop/index.vue'
 
 import ElCollapse from './components/ElCollapse/collapse.vue'
 import ElCollapseItem from './components/ElCollapse/collapse-item.vue'
