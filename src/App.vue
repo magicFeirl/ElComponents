@@ -66,6 +66,13 @@
     </div>
 
     <BackToTop></BackToTop>
+
+    <h2>Notification(Non-animation ver.)</h2>
+    <button @click="showNotification">show notification</button>
+
+    <h2>El-Progress</h2>
+    <el-progress :progress="progress"></el-progress>
+    <button @click="incProgress">incProgress</button>
   </div>
 </template>
 
@@ -86,7 +93,35 @@ import ElStep from './components/ElSteps/step.vue'
 
 import Loading from './components/Loading/index.js'
 
-import ElTableTest from './components/ElTableTest/index.vue'
+import Notification from './components/Notification'
+
+import ElProgress from './components/Progress/index.vue'
+
+let clickCnt = 0
+const showNotification = () => {
+  const close = Notification({
+    message: 'hello world ' + clickCnt++
+  })
+
+  setTimeout(close, 3000)
+}
+
+function scale(value, min, max) {
+  if (value < min) {
+    return min
+  }
+
+  if (value > max) {
+    return max
+  }
+
+  return value
+}
+
+let progress = ref(0)
+const incProgress = () => {
+  progress.value = scale(progress.value + 10, 0, 100)
+}
 
 const showMessage = () => {
   MessageBox({
