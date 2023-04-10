@@ -73,6 +73,16 @@
     <h2>El-Progress</h2>
     <el-progress :progress="progress"></el-progress>
     <button @click="incProgress">incProgress</button>
+
+    <el-badge :value="13">
+      <button>hot</button>
+    </el-badge>
+
+    <h2>El-Switch (Switch: {{ swithcState }})</h2>
+    <el-switch v-model="swithcState"></el-switch>
+
+    <h2>Masonry <button @click="toggleMasonry">{{ isShowMasonry ? 'hide' : 'show' }}</button> </h2>
+    <el-masonry v-show="isShowMasonry"></el-masonry>
   </div>
 </template>
 
@@ -86,6 +96,8 @@ import VirtualList from './components/VirtualList/index.vue'
 import BackToTop from './components/BacktoTop/index.vue'
 
 import ElCollapse from './components/ElCollapse/collapse.vue'
+import ElMasonry from './components/masonry/index.vue'
+
 import ElCollapseItem from './components/ElCollapse/collapse-item.vue'
 
 import ElSteps from './components/ElSteps/steps.vue'
@@ -96,6 +108,12 @@ import Loading from './components/Loading/index.js'
 import Notification from './components/Notification'
 
 import ElProgress from './components/Progress/index.vue'
+
+import ElBadge from './components/ElBadge/index.vue'
+
+import ElSwitch from './components/ElSwitch/index.vue'
+
+const swithcState = ref(false)
 
 let clickCnt = 0
 const showNotification = () => {
@@ -121,6 +139,11 @@ function scale(value, min, max) {
 let progress = ref(0)
 const incProgress = () => {
   progress.value = scale(progress.value + 10, 0, 100)
+}
+
+const isShowMasonry = ref(false)
+const toggleMasonry = () => {
+  isShowMasonry.value = !isShowMasonry.value
 }
 
 const showMessage = () => {
