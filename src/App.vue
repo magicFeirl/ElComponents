@@ -1,5 +1,16 @@
 <template>
   <div class="pl-2">
+    <el-breadcrumb>
+      <el-breadcrumb-item>A</el-breadcrumb-item>
+      <el-breadcrumb-item>B</el-breadcrumb-item>
+      <el-breadcrumb-item>C</el-breadcrumb-item>
+    </el-breadcrumb>
+
+    <el-table :data="[]">
+      <el-table-column label="name" prop=""></el-table-column>
+      <el-table-column label="gender" prop=""></el-table-column>
+    </el-table>
+
     <h1 class="text-2xl mb-4">ElementPlus Message & MessageBox Component & Loading Components etc.</h1>
     <div>
       <h2 class="text-lg">MessageBox test</h2>
@@ -7,6 +18,18 @@
       <button @click="showMessageStatic">message static</button>
       <button @click="showMessagePrompt">showMessagePrompt</button>
       <button @click="showMessagePromptStatic">showMessagePromptStatic</button>
+    </div>
+
+    <div class="mt-4">
+      <h2>El Image</h2>
+      <el-image src="https://www.23google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+        <template #placeholder>
+          loading
+        </template>
+        <template #error>
+          load image failed
+        </template>
+      </el-image>
     </div>
 
     <div class="mt-4">
@@ -100,6 +123,9 @@ import ElMasonry from './components/masonry/index.vue'
 
 import ElCollapseItem from './components/ElCollapse/collapse-item.vue'
 
+import ElBreadcrumb from './components/ElBreadcrumb/ElBreadcrumb.vue'
+import ElBreadcrumbItem from './components/ElBreadcrumb/ElBreadcrumbItem.vue'
+
 import ElSteps from './components/ElSteps/steps.vue'
 import ElStep from './components/ElSteps/step.vue'
 
@@ -112,6 +138,8 @@ import ElProgress from './components/Progress/index.vue'
 import ElBadge from './components/ElBadge/index.vue'
 
 import ElSwitch from './components/ElSwitch/index.vue'
+
+import ElImage from './components/ElImage/index.vue'
 
 const swithcState = ref(false)
 

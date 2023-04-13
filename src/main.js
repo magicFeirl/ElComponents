@@ -4,6 +4,8 @@ import App from './App.vue'
 import InifiniteScroll from './directives/infinite-scroll'
 
 import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
 
 import 'virtual:windi.css'
 
