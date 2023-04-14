@@ -33,6 +33,20 @@
     </div>
 
     <div class="mt-4">
+      <h2>ElPagination - currentPage: {{ currentPage }}</h2>
+      <el-pagination @page-change="handlePageChange" :total="100" :current-page="currentPage"
+        :page-size="5"></el-pagination>
+    </div>
+
+
+    <div class="mt-4">
+      <h2>ElSelectList(fake comp) {{ selcteListValue }} - selected</h2>
+      <el-select-list v-model="selcteListValue">
+        <el-select-list-item v-for="item in selectListData" v-bind="item"></el-select-list-item>
+      </el-select-list>
+    </div>
+
+    <div class="mt-4">
       <h2 class="text-lg">Message test</h2>
       <button @click="Message.info({ message: 'nihao' })">Info Message</button>
       <button @click="Message({ type: 'warning', message: 'nihao' })">Warning Message</button>
@@ -129,6 +143,11 @@ import ElBreadcrumbItem from './components/ElBreadcrumb/ElBreadcrumbItem.vue'
 import ElSteps from './components/ElSteps/steps.vue'
 import ElStep from './components/ElSteps/step.vue'
 
+import ElSelectList from './components/ElSelectList/SelectList.vue'
+import ElSelectListItem from './components/ElSelectList/SelectListItem.vue'
+
+import ElPagination from './components/ElPagination/pagination.vue'
+
 import Loading from './components/Loading/index.js'
 
 import Notification from './components/Notification'
@@ -141,7 +160,19 @@ import ElSwitch from './components/ElSwitch/index.vue'
 
 import ElImage from './components/ElImage/index.vue'
 
+const currentPage = ref(1)
+const handlePageChange = (page) => {
+  currentPage.value = page
+}
+
+
 const swithcState = ref(false)
+const selcteListValue = ref('')
+const selectListData = ref([
+  { label: '1 + 1 = 2', value: 2 },
+  { label: '2 + 3 = 5', value: 5 },
+  { label: '6 + 6 = 12', value: 12 }
+])
 
 let clickCnt = 0
 const showNotification = () => {
