@@ -66,7 +66,7 @@ export default {
       }
 
       if (this.currentPage + this.pageAlign >= this.totalPage) {
-        after = range(this.currentPage + 1, this.totalPage)
+        after = range(this.currentPage + 1, this.totalPage + 1)
       }
 
       if (!prev) {
@@ -81,11 +81,12 @@ export default {
       }
 
       if (!after) {
-        const afterPageCount = this.currentPage + 2 + this.pageAlign
         after = range(this.currentPage + 1, this.currentPage + 1 + this.pageAlign)
-        if (afterPageCount === 1) {
+        const afterPageCount = this.totalPage - this.currentPage
+        console.log(afterPageCount, this.currentPage, this.totalPage)
+        if (afterPageCount === this.pageAlign + 1) {
           after.push(this.totalPage)
-        } else if (afterPageCount > 1) {
+        } else {
           after.push('...', this.totalPage)
         }
       }
@@ -141,6 +142,7 @@ export default {
   padding: 0.2rem 0.4rem;
   cursor: pointer;
   border: 1px solid #ccc;
+  user-select: none;
 }
 
 .pagination-item+.pagination-item {
