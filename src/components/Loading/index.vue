@@ -16,7 +16,9 @@ defineProps({
 })
 
 let show = ref(false)
-Promise.resolve().then(() => show.value = true)
+Promise.resolve().then(() => {
+  show.value = true
+})
 </script>
 
 <style scoped>
@@ -36,9 +38,9 @@ Promise.resolve().then(() => show.value = true)
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
+  width: 100%;
+  height: 100%;
+  position: absolute;
   left: 0;
   top: 0;
 }

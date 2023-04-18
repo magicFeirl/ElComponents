@@ -1,7 +1,7 @@
 import LoadingVue from './index.vue'
 import { createApp } from 'vue'
 
-let instance = null
+let boydScroll;
 const defaultOptions = {
   text: 'loading...'
 }
@@ -19,6 +19,7 @@ export default {
     document.body.appendChild(container)
     this.container = container
     this.instance.mount(container)
+
 
     return this
   },
