@@ -21,6 +21,35 @@
     </div>
 
     <div class="mt-4">
+      <h2>
+        ElScroll & ElCarousel
+        <button @click="showElScrollAndElCarousel">
+          {{ isShowElScrollAndElCarousel ? 'hide' : 'show' }}
+        </button>
+      </h2>
+      <div v-show="isShowElScrollAndElCarousel">
+        <div class="mt-4">
+          <h2>El Scroll (very simple version)</h2>
+          <el-scroll>
+            <div :style="{ height: '1000px' }">334</div>
+            <div>bottom</div>
+          </el-scroll>
+        </div>
+
+        <div class="mt-4">
+          <h2>El Carousel</h2>
+          <el-carousel style="height: 300px" :interval="5000">
+            <el-carousel-item :style="{ background: bg, height: '100%', color: 'white', 'font-size': '2rem' }"
+              v-for="{ content, bg } in carouselList">
+              {{ content }}
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mt-4">
       <h2>El Image</h2>
       <el-image src="https://www.23google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
         <template #placeholder>
@@ -137,6 +166,11 @@ import ElMasonry from './components/masonry/index.vue'
 
 import ElCollapseItem from './components/ElCollapse/collapse-item.vue'
 
+import ElScroll from './components/ElScroll/scroll-container.vue'
+
+import ElCarousel from './components/ElCarousel/carousel.vue'
+import ElCarouselItem from './components/ElCarousel/carousel-item.vue'
+
 import ElBreadcrumb from './components/ElBreadcrumb/ElBreadcrumb.vue'
 import ElBreadcrumbItem from './components/ElBreadcrumb/ElBreadcrumbItem.vue'
 
@@ -165,6 +199,17 @@ const handlePageChange = (page) => {
   currentPage.value = page
 }
 
+const isShowElScrollAndElCarousel = ref(false)
+const showElScrollAndElCarousel = () => {
+  isShowElScrollAndElCarousel.value = !isShowElScrollAndElCarousel.value
+}
+
+const carouselList = ref([
+  { content: 'item1', bg: 'grey' },
+  { content: 'item2', bg: 'grey' },
+  { content: 'item3', bg: 'grey' },
+  { content: 'item4', bg: 'grey' },
+])
 
 const swithcState = ref(false)
 const selcteListValue = ref('')
